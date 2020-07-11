@@ -2,20 +2,10 @@
 
 Mohamed Azouz, Senior Software Engineer & Software Architect. 
 
-
-* 🔭 I’m currently working on:
-
-  * #Java #Typescript #NodeJS #Bash_Scripting
-  * #Serverless #Microservice #Software_Architect 
-  * #Cloud_Architect #AWS #GCP #Devops #Terraform
-  * #Open_Srource
-  
-<p>
- 
-[![Open Source Love png2](https://badges.frapsoft.com/os/v2/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
-<img src="https://visitor-badge.glitch.me/badge?page_id=mohamedazouz.visitor-badge"/> 
-</p>
-
+#Java #Typescript #NodeJS #Bash_Scripting
+#Serverless #Microservice #Software_Architect 
+#Cloud_Architect #AWS #GCP #Devops #Terraform
+#Open_Srource
 
 <p align='center'>
 <a href="https://www.linkedin.com/in/mohamedazouz"><img height="30" src="https://github.com/mohamedazouz/mohamedazouz/blob/master/linkedin.png?raw=true"></a>
