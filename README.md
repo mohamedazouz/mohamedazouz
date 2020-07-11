@@ -1,13 +1,14 @@
-### Hi there 👋
+### Hello! 👋
 
-[<img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg">](https://www.linkedin.com/in/mohamedazouz)
+[<img width="2%" src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg">](https://www.linkedin.com/in/mohamedazouz)
 
-#### Mohamed Azouz, Senior Software Engineer & Software Architect.
+### Mohamed Azouz, Senior Software Engineer & Software Architect. 
 
 
 #Java #Typescript #NodeJS #Bash_Scripting
-#Serverless #Microservice  #Software_Architect 
-#Cloud_Architect #AWS #GCP #Devops #Terraform #Open_Srource
+#Serverless #Microservice #Software_Architect 
+#Cloud_Architect #AWS #GCP #Devops #Terraform
+#Open_Srource
 
 <!--
 **mohamedazouz/mohamedazouz** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
@@ -23,3 +24,4 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+
