@@ -5,7 +5,7 @@ Mohamed Azouz, Senior Software Engineer & Software Architect.
 #Java #Typescript #NodeJS #Bash_Scripting
 #Serverless #Microservice #Software_Architect 
 #Cloud_Architect #AWS #GCP #Devops #Terraform
-#Open_Srource
+#Open_Source
 
 <p align='center'>
 <a href="https://www.linkedin.com/in/mohamedazouz"><img height="30" src="https://github.com/mohamedazouz/mohamedazouz/blob/master/linkedin.png?raw=true"></a>
