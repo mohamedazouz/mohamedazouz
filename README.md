@@ -1,11 +1,13 @@
 ### Hi there 👋
 
-#### Mohamed Azouz, Senior Software Engineer & Software Architect.
-
 [<img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg">](https://www.linkedin.com/in/mohamedazouz)
 
+#### Mohamed Azouz, Senior Software Engineer & Software Architect.
 
-#Java #Typescript #NodeJS #Serverless #Microservice #Bash_Scripting #Software_Architecture #AWS #GCP #Devops #Terraform #Open_Srource #Cloud_Architect 
+
+#Java #Typescript #NodeJS #Bash_Scripting
+#Serverless #Microservice  #Software_Architect 
+#Cloud_Architect #AWS #GCP #Devops #Terraform #Open_Srource
 
 <!--
 **mohamedazouz/mohamedazouz** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
