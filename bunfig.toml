@@ -1,0 +1,7 @@
+# Bun configuration
+# Supply-chain safety: never install a package version published less than
+# 30 days ago (2,592,000 seconds). Gives the community time to catch
+# compromised or vulnerable releases before they reach this site.
+[install]
+minimumReleaseAge = 2592000
+exact = false

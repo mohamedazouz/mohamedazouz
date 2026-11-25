@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Build output & Astro cache
+dist/
+.astro/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+bun-debug.log*
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Claude Code — personal (non-shared) settings
+.claude/settings.local.json
