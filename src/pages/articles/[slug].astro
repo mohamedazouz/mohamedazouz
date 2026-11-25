@@ -1,0 +1,43 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../consts';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('articles', ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const url = `${SITE.url}/articles/${post.id}/`;
+const fmt = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const blogPosting = {
+  '@type': 'BlogPosting',
+  '@id': `${url}#article`,
+  mainEntityOfPage: url,
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.date.toISOString(),
+  dateModified: (post.data.updated ?? post.data.date).toISOString(),
+  keywords: post.data.tags.join(', '),
+  inLanguage: SITE.lang,
+  author: { '@id': `${SITE.url}/#person` },
+  publisher: { '@id': `${SITE.url}/#person` },
+  image: new URL(SITE.ogImage, SITE.url).href,
+};
+---
+
+<BaseLayout
+  title={`${post.data.title} · ${SITE.name}`}
+  description={post.data.description}
+  ogType="article"
+  schema={[blogPosting]}
+>
+  <article>
+    <h1>{post.data.title}</h1>
+    <p class="mono"><time datetime={post.data.date.toISOString()}>{fmt.format(post.data.date)}</time></p>
+    <div class="prose"><Content /></div>
+  </article>
+</BaseLayout>

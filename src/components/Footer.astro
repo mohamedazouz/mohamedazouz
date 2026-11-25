@@ -1,0 +1,10 @@
+---
+import SocialLinks from './SocialLinks.astro';
+import { PERSON } from '../consts';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <p class="mono">© {year} {PERSON.name}. All rights reserved.</p>
+  <SocialLinks />
+</footer>
