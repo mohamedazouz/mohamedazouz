@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { PAGES, CAREER, LINKS, SITE } from '../consts';
+
+const profilePage = {
+  '@type': 'ProfilePage',
+  '@id': `${SITE.url}/about/#profilepage`,
+  url: `${SITE.url}/about/`,
+  name: PAGES.about.title,
+  description: PAGES.about.description,
+  inLanguage: SITE.lang,
+  isPartOf: { '@id': `${SITE.url}/#website` },
+  mainEntity: { '@id': `${SITE.url}/#person` },
+  about: { '@id': `${SITE.url}/#person` },
+};
+---
+
+<BaseLayout
+  title={PAGES.about.title}
+  description={PAGES.about.description}
+  ogType="profile"
+  schema={[profilePage]}
+>
+  <article>
+    <h1>About</h1>
+    <p class="subtitle">Engineering leader · Streaming platforms · AI-driven engineering</p>
+
+    <p>
+      I'm an engineering leader based in London, with more than 15 years in software. My career has
+      taken me from writing code to leading teams across Cairo, Berlin and London.
+    </p>
+    <p>
+      Today I lead engineering teams that build and run large-scale video streaming infrastructure at <strong>Skydance</strong> (formerly
+      Warner Bros. Discovery). These are platforms where reliability <em>is</em> the product.
+      I own delivery end to end, from strategy and planning through to production.
+    </p>
+    <p>
+      I believe great software comes from great teams. I put people first: I build cultures of trust,
+      ownership and continuous learning, and I bring different strengths together so a team works in
+      harmony toward shared goals. Mentoring engineers and growing future leaders is one of the most
+      rewarding parts of my job.
+    </p>
+    <p>
+      I'm passionate about <strong>AI-driven engineering</strong>. I bring AI into everyday development,
+      from AI-assisted coding and reviews to <strong>agentic AI</strong> workflows that automate repetitive
+      work, and I experiment with agents and local models of my own.
+    </p>
+    <p>
+      Before that, I helped build the company-wide data platform at <strong>Delivery Hero</strong>, which
+      was featured in <a href={LINKS.awsVideo} rel="noopener" target="_blank">AWS <em>This Is My Architecture</em></a>.
+      Earlier, I helped <strong>Zalando</strong> scale its product services while it moved from a monolith
+      to microservices. My career started at startups, including <strong>Parlio</strong> (acquired by Quora).
+    </p>
+    <p>
+      I keep my focus on the big picture (strategy, architecture and outcomes) while staying close to the
+      technology, reviewing designs and code where it matters most.
+    </p>
+
+    <h2>What I focus on</h2>
+    <ul class="focus">
+      <li><strong>People and culture</strong>: hiring, mentoring and growing engineers and leaders in teams built on trust and ownership.</li>
+      <li><strong>Delivery at scale</strong>: turning strategy into clear goals and roadmaps, and shipping reliably across many teams.</li>
+      <li><strong>Reliability</strong>: observability, security and operational excellence for platforms that serve millions.</li>
+      <li><strong>Architecture</strong>: pragmatic, cloud-native choices for distributed systems that last.</li>
+      <li><strong>AI in engineering</strong>: AI-driven development and agentic AI that make teams faster and better.</li>
+    </ul>
+
+    <p>
+      <span class="label">Toolbox</span><br />
+      Go, Python, AWS, Kubernetes, infrastructure as code, observability, agentic AI, local models.
+    </p>
+
+    <h2>Career</h2>
+    <ol class="timeline">
+      {
+        CAREER.map((c) => (
+          <li>
+            <span class="years">{c.years}</span>
+            <span>
+              {c.role}, <span class="org">{c.org}</span>
+            </span>
+          </li>
+        ))
+      }
+      <li>
+        <span class="years">Education</span>
+        <span>B.Sc. Computer Science, <span class="org">Cairo University</span></span>
+      </li>
+    </ol>
+
+    <p class="disclaimer">Views here are my own and don't represent any employer.</p>
+  </article>
+</BaseLayout>

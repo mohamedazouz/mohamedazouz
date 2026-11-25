@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import { PAGES, PERSON } from '../consts';
+---
+
+<BaseLayout title={PAGES.home.title} description={PAGES.home.description}>
+  <section class="home">
+    <h1>{PERSON.name}</h1>
+    <p class="subtitle">{PERSON.headline}</p>
+    <p class="lead">
+      I lead engineering teams that build large-scale streaming platforms, and I help teams adopt
+      AI-driven development and agentic AI to ship better software, faster. People and culture come
+      first.
+    </p>
+    <p><a href="/about/">More about me →</a></p>
+    <SocialLinks size={20} />
+    <div class="soon">
+      <span class="label">// writing — coming soon</span>
+      <p>Notes on engineering leadership, streaming at scale, and building with AI agents.</p>
+    </div>
+  </section>
+</BaseLayout>

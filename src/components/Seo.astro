@@ -1,0 +1,98 @@
+---
+import { SITE, PERSON, LINKS } from '../consts';
+
+interface Props {
+  title: string;
+  description: string;
+  noindex?: boolean;
+  /** Extra JSON-LD nodes to merge into the page graph (e.g. ProfilePage, BlogPosting). */
+  schema?: Record<string, unknown>[];
+  ogType?: 'website' | 'profile' | 'article';
+}
+
+const { title, description, noindex = false, schema = [], ogType = 'website' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, SITE.url).href;
+const ogImage = new URL(SITE.ogImage, SITE.url).href;
+
+const personId = `${SITE.url}/#person`;
+const websiteId = `${SITE.url}/#website`;
+
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': websiteId,
+      url: `${SITE.url}/`,
+      name: SITE.name,
+      description: PERSON.description,
+      inLanguage: SITE.lang,
+      publisher: { '@id': personId },
+    },
+    {
+      '@type': 'Person',
+      '@id': personId,
+      name: PERSON.name,
+      givenName: PERSON.givenName,
+      familyName: PERSON.familyName,
+      url: `${SITE.url}/`,
+      image: ogImage,
+      email: PERSON.email,
+      jobTitle: PERSON.jobTitle,
+      description: PERSON.description,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: PERSON.city,
+        addressCountry: PERSON.country,
+      },
+      workLocation: {
+        '@type': 'Place',
+        name: `${PERSON.city}, United Kingdom`,
+      },
+      worksFor: { '@type': 'Organization', name: PERSON.employer.name, url: PERSON.employer.url },
+      alumniOf: {
+        '@type': 'CollegeOrUniversity',
+        name: PERSON.alumniOf.name,
+        url: PERSON.alumniOf.url,
+      },
+      hasOccupation: {
+        '@type': 'Occupation',
+        name: 'Engineering Manager',
+        occupationLocation: { '@type': 'City', name: PERSON.city },
+        skills: PERSON.knowsAbout.join(', '),
+      },
+      knowsAbout: PERSON.knowsAbout,
+      knowsLanguage: ['English', 'Arabic'],
+      sameAs: [LINKS.linkedin, LINKS.github, LINKS.awsVideo],
+    },
+    ...schema,
+  ],
+};
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta name="author" content={PERSON.name} />
+{noindex ? <meta name="robots" content="noindex, follow" /> : <meta name="robots" content="index, follow, max-image-preview:large" />}
+
+<meta property="og:type" content={ogType} />
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:locale" content={SITE.locale} />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={SITE.ogImageAlt} />
+{ogType === 'profile' && <meta property="profile:first_name" content={PERSON.givenName} />}
+{ogType === 'profile' && <meta property="profile:last_name" content={PERSON.familyName} />}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={SITE.ogImageAlt} />
+
+<script type="application/ld+json" set:html={JSON.stringify(graph)} />
